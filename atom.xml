@@ -5,9 +5,9 @@
   <subtitle>闻道有先后,术业有专攻</subtitle>
   <link href="/Blog/atom.xml" rel="self"/>
   
-  <link href="www.anztan.com/"/>
+  <link href="www.anztan.com/Blog/"/>
   <updated>2018-06-05T02:33:04.084Z</updated>
-  <id>www.anztan.com/</id>
+  <id>www.anztan.com/Blog/</id>
   
   <author>
     <name>Eugene</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>My New Post</title>
-    <link href="www.anztan.com/2018/06/05/My-New-Post/"/>
-    <id>www.anztan.com/2018/06/05/My-New-Post/</id>
+    <link href="www.anztan.com/Blog/2018/06/05/My-New-Post/"/>
+    <id>www.anztan.com/Blog/2018/06/05/My-New-Post/</id>
     <published>2018-06-05T02:33:04.000Z</published>
     <updated>2018-06-05T02:33:04.084Z</updated>
     
@@ -32,8 +32,8 @@
   
   <entry>
     <title>我的学习</title>
-    <link href="www.anztan.com/2018/06/05/%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
-    <id>www.anztan.com/2018/06/05/我的学习/</id>
+    <link href="www.anztan.com/Blog/2018/06/05/%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
+    <id>www.anztan.com/Blog/2018/06/05/我的学习/</id>
     <published>2018-06-05T02:33:04.000Z</published>
     <updated>2018-06-05T09:37:13.334Z</updated>
     
@@ -56,14 +56,14 @@
     </summary>
     
     
-      <category term="tags" scheme="www.anztan.com/tags/tags/"/>
+      <category term="tags" scheme="www.anztan.com/Blog/tags/tags/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="www.anztan.com/2018/06/04/hello-world/"/>
-    <id>www.anztan.com/2018/06/04/hello-world/</id>
+    <link href="www.anztan.com/Blog/2018/06/04/hello-world/"/>
+    <id>www.anztan.com/Blog/2018/06/04/hello-world/</id>
     <published>2018-06-04T08:59:04.185Z</published>
     <updated>2018-06-05T09:31:25.760Z</updated>
     
