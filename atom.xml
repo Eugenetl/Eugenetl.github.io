@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.anztan.com/"/>
-  <updated>2018-06-05T02:33:04.084Z</updated>
+  <updated>2018-06-09T08:42:58.586Z</updated>
   <id>www.anztan.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的学习</title>
+    <link href="www.anztan.com/2018/06/05/%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
+    <id>www.anztan.com/2018/06/05/我的学习/</id>
+    <published>2018-06-05T02:33:04.000Z</published>
+    <updated>2018-06-09T08:42:58.586Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>统一登录</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;统一登录&lt;/li&gt;
+&lt;/ol&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="学习" scheme="www.anztan.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>My New Post</title>
@@ -27,36 +53,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>我的学习</title>
-    <link href="www.anztan.com/2018/06/05/%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
-    <id>www.anztan.com/2018/06/05/我的学习/</id>
-    <published>2018-06-05T02:33:04.000Z</published>
-    <updated>2018-06-09T02:49:45.341Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>统一登录平台门户直播模块集成；</li><li>学生移动端趣味英语功能完成开发</li><li>老师评价功能完成开发</li><li>英语资源的补充和校验</li><li>智慧答疑资源的补充</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;统一登录平台门户直播模块集成；&lt;/li&gt;
-&lt;li&gt;学生移动端趣味英语功能完成开发&lt;/li&gt;
-&lt;li&gt;老师评价功能完成开发&lt;/li&gt;
-&lt;li&gt;英语资源的补充和校验&lt;/li&gt;
-&lt;li&gt;智慧答疑资源的补充&lt;/li&gt;
-&lt;/ol&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="学习" scheme="www.anztan.com/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
