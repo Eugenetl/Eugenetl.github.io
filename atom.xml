@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.anztan.com/"/>
-  <updated>2018-06-10T02:43:15.372Z</updated>
+  <updated>2018-06-09T10:39:40.200Z</updated>
   <id>www.anztan.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux环境安装JDK与tomcat</title>
+    <link href="www.anztan.com/2018/06/05/%E5%AD%A6%E4%B9%A0%E4%B9%8BLinux%E5%AE%89%E8%A3%85JDK%E4%B8%8ETomcat/"/>
+    <id>www.anztan.com/2018/06/05/学习之Linux安装JDK与Tomcat/</id>
+    <published>2018-06-05T02:33:04.000Z</published>
+    <updated>2018-06-09T10:39:40.200Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="详细步骤："><a href="#详细步骤：" class="headerlink" title="详细步骤："></a>详细步骤：</h1><h2 id="1、下载JDK-及Tomcat"><a href="#1、下载JDK-及Tomcat" class="headerlink" title="1、下载JDK 及Tomcat"></a>1、下载JDK 及Tomcat</h2><p>1.1 JDK下载文件为jdk-6u32-linux-x64.bin</p><p>1.2 Tomcat下载为apache-tomcat-6.0.24.tar</p><h2 id="2、安装JDK"><a href="#2、安装JDK" class="headerlink" title="2、安装JDK"></a>2、安装JDK</h2><pre><code>2.1 上传安装文件</code></pre><p>使用SSH上传jdk-6u32-linux-x64.bin至/usr/local/<br>查看：<br>如图</p><p> <img src="https://i.imgur.com/UqcMNij.png" alt=""></p><p>2.2 进入上传的安装路径</p><pre><code>Step 1： 在终端中输入cd /usr/local 转到jdk-6u32-linux-x64.bin所在的目录输入命令  step 2：执行#chmod +755 jdk-6u32-linux-x64.bin;     //添加执行的权限。</code></pre><p>如图：</p><p><img src="https://i.imgur.com/VLTnFUy.png" alt=""></p><p>2.3执行命令安装JDK </p><pre><code>Step 1： 执行 #./ jdk-6u32-linux-x64.bin ;      //安装jdk。 </code></pre><p><img src="https://i.imgur.com/tFz9kgv.png" alt=""></p><p>默认安装路径在/usr/local/，执行完后，在/usr/local/文件夹下回生成一个文件夹</p><p>如图：</p><p><img src="https://i.imgur.com/Xw0kUjn.png" alt=""></p><pre><code>Step 2：设置环境变量：在 /etc/profile最下面加入如下内容(vi编辑)    </code></pre><p>JAVA_HOME=/usr/javacd /jdk1.6.0_32<br>CLASSPATH=.:$JAVA_HOME/lib.tools.jar<br>PATH=$JAVA_HOME/bin:$PATH<br>export JAVA_HOME CLASSPATH PATH </p><p>如图：</p><p><img src="https://i.imgur.com/4I418w5.png" alt=""></p><p><img src="https://i.imgur.com/8Wt67sW.png" alt=""></p><pre><code>Step 3：环境变量配置完后保存，让修改的文件立即生效执行：</code></pre><h1 id="source-etc-profile"><a href="#source-etc-profile" class="headerlink" title="source /etc/profile"></a>source /etc/profile</h1><p>如图：</p><p><img src="https://i.imgur.com/57l25dH.png" alt=""></p><p>最后查看安装好的JDK，在终端执行命令 java –version  </p><h1 id="java-version"><a href="#java-version" class="headerlink" title="java -version"></a>java -version</h1><p>java version “1.6.0_32”<br>Java(TM) SE Runtime Environment (build 1.6.0_32-b05)<br>Java HotSpot(TM) 64-Bit Server VM (build 20.7-b02, mixed mode)<br>如图：</p><p><img src="https://i.imgur.com/GaMAeKc.png" alt=""></p><p>则表示jdk已成功安装 </p><h2 id="3、安装Tomcat"><a href="#3、安装Tomcat" class="headerlink" title="3、安装Tomcat"></a>3、安装Tomcat</h2><p>3.1上传安装包<br>    Step 1：使用SSH上传apache-tomcat-6.0.24.tar至/usr/local/</p><p>3.2 对tar包进行解压并对上传的Tomcat安装包赋权限。</p><pre><code>Step 1：执行 # chmod +x apache-tomcat-6.0.24.tar.gz   //赋权限Step 2：解压：:执行 #tar -zxvf apache-tomcat-6.0.24.tar ; // 解压</code></pre><p>如图：</p><p><img src="https://i.imgur.com/oFd005r.png" alt=""></p><p>3.3 tomcat重命名</p><pre><code>Step 1：将解压的文件重命名为tomcat 执行：# mv apache-tomcat-6.0.24   tomcat(重命名方式：此处用的MV，移动重命名方式，还有其重他命名命令)Step 2：执行完后，查看文件名是否修改： 执行 #ls –l  如图：</code></pre><p><img src="https://i.imgur.com/cLGFhmY.png" alt=""></p><p>3.4启动tomcat</p><pre><code>Step 1：执行 # /usr/local/tomcat/bin/startup.sh   Using CATALINA_BASE:   /usr/local/tomcatUsing CATALINA_HOME:   /usr/local/tomcatUsing CATALINA_TMPDIR: /usr/local/tomcat/tempUsing JRE_HOME:        /usr/local/jdk1.6.0_32Using CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar</code></pre><p>到此tomcat已经安装完成<br>如图： </p><p><img src="https://i.imgur.com/GJDEfq1.png" alt=""></p><p>3.5测试</p><p>使用浏览器访问 <a href="http://serverIP:8080（注：默认安装端口为8080，下面截图张中的已将端口改为了80，所以没有显示）出现tomcat默认页面说明已经安装" target="_blank" rel="noopener">http://serverIP:8080（注：默认安装端口为8080，下面截图张中的已将端口改为了80，所以没有显示）出现tomcat默认页面说明已经安装</a> 成功。</p><p>如图：</p><p><img src="https://i.imgur.com/elB3S56.png" alt=""></p><p>  如未出现页面查看端口使用情况看是否监听8080端口  </p><h1 id="netstat-lnp"><a href="#netstat-lnp" class="headerlink" title="netstat -lnp"></a>netstat -lnp</h1><p>查看tomcat进程  </p><h1 id="ps-ef-grep-tomcat"><a href="#ps-ef-grep-tomcat" class="headerlink" title="ps -ef|grep tomcat"></a>ps -ef|grep tomcat</h1><p>root     24782     1 15 09:52 pts/0    00:00:02<br>/usr/java/jdk1.6.0_45/bin/java<br>-Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.proper ties<br>-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager<br>-Djava.endorsed.dirs=/usr/local/tomcat/endorsed -classpath<br>/usr/local/tomcat/bin/bootstrap.jar<br>-Dcatalina.base=/usr/local/tomcat<br>-Dcatalina.home=/usr/local/tomcat<br>-Djava.io.tmpdir=/usr/local/tomcat/temp<br>org.apache.catalina.startup.Bootstrap start<br>root     24815 24482  0 09:52 pts/0    00:00:00 grep tomcat<br>如都正常则查看是否为iptables防火墙限制了访问<br>执行如下命令关闭iptables  </p><h1 id="service-iptables-stop"><a href="#service-iptables-stop" class="headerlink" title="service iptables stop"></a>service iptables stop</h1><p>杀掉tomcat进程  </p><p>#kill -9 xxxx<br>重启tomcat  </p><h1 id="usr-local-tomcat-bin-startup-sh"><a href="#usr-local-tomcat-bin-startup-sh" class="headerlink" title="/usr/local/tomcat/bin/startup.sh"></a>/usr/local/tomcat/bin/startup.sh</h1><p>查看页面是否正常 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;详细步骤：&quot;&gt;&lt;a href=&quot;#详细步骤：&quot; class=&quot;headerlink&quot; title=&quot;详细步骤：&quot;&gt;&lt;/a&gt;详细步骤：&lt;/h1&gt;&lt;h2 id=&quot;1、下载JDK-及Tomcat&quot;&gt;&lt;a href=&quot;#1、下载JDK-及Tomcat&quot; class=&quot;he
+      
+    
+    </summary>
+    
+      <category term="study" scheme="www.anztan.com/categories/study/"/>
+    
+    
+      <category term="学习" scheme="www.anztan.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>生活</title>
@@ -86,31 +111,6 @@
       
     
     </summary>
-    
-    
-      <category term="学习" scheme="www.anztan.com/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux环境安装JDK与tomcat</title>
-    <link href="www.anztan.com/2018/06/05/%E5%AD%A6%E4%B9%A0%E4%B9%8BLinux%E5%AE%89%E8%A3%85JDK%E4%B8%8ETomcat/"/>
-    <id>www.anztan.com/2018/06/05/学习之Linux安装JDK与Tomcat/</id>
-    <published>2018-06-05T02:33:04.000Z</published>
-    <updated>2018-06-09T10:39:40.200Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="详细步骤："><a href="#详细步骤：" class="headerlink" title="详细步骤："></a>详细步骤：</h1><h2 id="1、下载JDK-及Tomcat"><a href="#1、下载JDK-及Tomcat" class="headerlink" title="1、下载JDK 及Tomcat"></a>1、下载JDK 及Tomcat</h2><p>1.1 JDK下载文件为jdk-6u32-linux-x64.bin</p><p>1.2 Tomcat下载为apache-tomcat-6.0.24.tar</p><h2 id="2、安装JDK"><a href="#2、安装JDK" class="headerlink" title="2、安装JDK"></a>2、安装JDK</h2><pre><code>2.1 上传安装文件</code></pre><p>使用SSH上传jdk-6u32-linux-x64.bin至/usr/local/<br>查看：<br>如图</p><p> <img src="https://i.imgur.com/UqcMNij.png" alt=""></p><p>2.2 进入上传的安装路径</p><pre><code>Step 1： 在终端中输入cd /usr/local 转到jdk-6u32-linux-x64.bin所在的目录输入命令  step 2：执行#chmod +755 jdk-6u32-linux-x64.bin;     //添加执行的权限。</code></pre><p>如图：</p><p><img src="https://i.imgur.com/VLTnFUy.png" alt=""></p><p>2.3执行命令安装JDK </p><pre><code>Step 1： 执行 #./ jdk-6u32-linux-x64.bin ;      //安装jdk。 </code></pre><p><img src="https://i.imgur.com/tFz9kgv.png" alt=""></p><p>默认安装路径在/usr/local/，执行完后，在/usr/local/文件夹下回生成一个文件夹</p><p>如图：</p><p><img src="https://i.imgur.com/Xw0kUjn.png" alt=""></p><pre><code>Step 2：设置环境变量：在 /etc/profile最下面加入如下内容(vi编辑)    </code></pre><p>JAVA_HOME=/usr/javacd /jdk1.6.0_32<br>CLASSPATH=.:$JAVA_HOME/lib.tools.jar<br>PATH=$JAVA_HOME/bin:$PATH<br>export JAVA_HOME CLASSPATH PATH </p><p>如图：</p><p><img src="https://i.imgur.com/4I418w5.png" alt=""></p><p><img src="https://i.imgur.com/8Wt67sW.png" alt=""></p><pre><code>Step 3：环境变量配置完后保存，让修改的文件立即生效执行：</code></pre><h1 id="source-etc-profile"><a href="#source-etc-profile" class="headerlink" title="source /etc/profile"></a>source /etc/profile</h1><p>如图：</p><p><img src="https://i.imgur.com/57l25dH.png" alt=""></p><p>最后查看安装好的JDK，在终端执行命令 java –version  </p><h1 id="java-version"><a href="#java-version" class="headerlink" title="java -version"></a>java -version</h1><p>java version “1.6.0_32”<br>Java(TM) SE Runtime Environment (build 1.6.0_32-b05)<br>Java HotSpot(TM) 64-Bit Server VM (build 20.7-b02, mixed mode)<br>如图：</p><p><img src="https://i.imgur.com/GaMAeKc.png" alt=""></p><p>则表示jdk已成功安装 </p><h2 id="3、安装Tomcat"><a href="#3、安装Tomcat" class="headerlink" title="3、安装Tomcat"></a>3、安装Tomcat</h2><p>3.1上传安装包<br>    Step 1：使用SSH上传apache-tomcat-6.0.24.tar至/usr/local/</p><p>3.2 对tar包进行解压并对上传的Tomcat安装包赋权限。</p><pre><code>Step 1：执行 # chmod +x apache-tomcat-6.0.24.tar.gz   //赋权限Step 2：解压：:执行 #tar -zxvf apache-tomcat-6.0.24.tar ; // 解压</code></pre><p>如图：</p><p><img src="https://i.imgur.com/oFd005r.png" alt=""></p><p>3.3 tomcat重命名</p><pre><code>Step 1：将解压的文件重命名为tomcat 执行：# mv apache-tomcat-6.0.24   tomcat(重命名方式：此处用的MV，移动重命名方式，还有其重他命名命令)Step 2：执行完后，查看文件名是否修改： 执行 #ls –l  如图：</code></pre><p><img src="https://i.imgur.com/cLGFhmY.png" alt=""></p><p>3.4启动tomcat</p><pre><code>Step 1：执行 # /usr/local/tomcat/bin/startup.sh   Using CATALINA_BASE:   /usr/local/tomcatUsing CATALINA_HOME:   /usr/local/tomcatUsing CATALINA_TMPDIR: /usr/local/tomcat/tempUsing JRE_HOME:        /usr/local/jdk1.6.0_32Using CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar</code></pre><p>到此tomcat已经安装完成<br>如图： </p><p><img src="https://i.imgur.com/GJDEfq1.png" alt=""></p><p>3.5测试</p><p>使用浏览器访问 <a href="http://serverIP:8080（注：默认安装端口为8080，下面截图张中的已将端口改为了80，所以没有显示）出现tomcat默认页面说明已经安装" target="_blank" rel="noopener">http://serverIP:8080（注：默认安装端口为8080，下面截图张中的已将端口改为了80，所以没有显示）出现tomcat默认页面说明已经安装</a> 成功。</p><p>如图：</p><p><img src="https://i.imgur.com/elB3S56.png" alt=""></p><p>  如未出现页面查看端口使用情况看是否监听8080端口  </p><h1 id="netstat-lnp"><a href="#netstat-lnp" class="headerlink" title="netstat -lnp"></a>netstat -lnp</h1><p>查看tomcat进程  </p><h1 id="ps-ef-grep-tomcat"><a href="#ps-ef-grep-tomcat" class="headerlink" title="ps -ef|grep tomcat"></a>ps -ef|grep tomcat</h1><p>root     24782     1 15 09:52 pts/0    00:00:02<br>/usr/java/jdk1.6.0_45/bin/java<br>-Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.proper ties<br>-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager<br>-Djava.endorsed.dirs=/usr/local/tomcat/endorsed -classpath<br>/usr/local/tomcat/bin/bootstrap.jar<br>-Dcatalina.base=/usr/local/tomcat<br>-Dcatalina.home=/usr/local/tomcat<br>-Djava.io.tmpdir=/usr/local/tomcat/temp<br>org.apache.catalina.startup.Bootstrap start<br>root     24815 24482  0 09:52 pts/0    00:00:00 grep tomcat<br>如都正常则查看是否为iptables防火墙限制了访问<br>执行如下命令关闭iptables  </p><h1 id="service-iptables-stop"><a href="#service-iptables-stop" class="headerlink" title="service iptables stop"></a>service iptables stop</h1><p>杀掉tomcat进程  </p><p>#kill -9 xxxx<br>重启tomcat  </p><h1 id="usr-local-tomcat-bin-startup-sh"><a href="#usr-local-tomcat-bin-startup-sh" class="headerlink" title="/usr/local/tomcat/bin/startup.sh"></a>/usr/local/tomcat/bin/startup.sh</h1><p>查看页面是否正常 </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;详细步骤：&quot;&gt;&lt;a href=&quot;#详细步骤：&quot; class=&quot;headerlink&quot; title=&quot;详细步骤：&quot;&gt;&lt;/a&gt;详细步骤：&lt;/h1&gt;&lt;h2 id=&quot;1、下载JDK-及Tomcat&quot;&gt;&lt;a href=&quot;#1、下载JDK-及Tomcat&quot; class=&quot;he
-      
-    
-    </summary>
-    
-      <category term="study" scheme="www.anztan.com/categories/study/"/>
     
     
       <category term="学习" scheme="www.anztan.com/tags/%E5%AD%A6%E4%B9%A0/"/>
