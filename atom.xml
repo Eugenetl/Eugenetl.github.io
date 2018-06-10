@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.anztan.com/"/>
-  <updated>2018-06-09T10:47:27.397Z</updated>
+  <updated>2018-06-09T10:39:40.200Z</updated>
   <id>www.anztan.com/</id>
   
   <author>
@@ -15,30 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>About</title>
-    <link href="www.anztan.com/2018/06/05/About/"/>
-    <id>www.anztan.com/2018/06/05/About/</id>
-    <published>2018-06-05T02:33:04.000Z</published>
-    <updated>2018-06-09T10:47:27.397Z</updated>
-    
-    <content type="html"><![CDATA[<p>大家好</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;大家好&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="关于" scheme="www.anztan.com/tags/%E5%85%B3%E4%BA%8E/"/>
-    
-  </entry>
   
   <entry>
     <title>Linux环境安装JDK与tomcat</title>
@@ -88,6 +64,30 @@
     
     
       <category term="学习" scheme="www.anztan.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>About</title>
+    <link href="www.anztan.com/2018/06/05/About/"/>
+    <id>www.anztan.com/2018/06/05/About/</id>
+    <published>2018-06-05T02:33:04.000Z</published>
+    <updated>2018-06-09T10:47:27.397Z</updated>
+    
+    <content type="html"><![CDATA[<p>大家好</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;大家好&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="关于" scheme="www.anztan.com/tags/%E5%85%B3%E4%BA%8E/"/>
     
   </entry>
   
