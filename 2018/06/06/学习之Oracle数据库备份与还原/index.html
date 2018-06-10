@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="谭小燎">
 <meta property="og:description" content="1.备份注：本次演示在C盘，首先在C盘新建backup文件夹，新建完成后，在SQl Plus下执行：create directory dump_dir as ‘C:\backup’;GRANT READ,WRITE ON DIRECTORY dump_dir to admin;命令行执行expdp SCHEMAS= admin directory=dump_dir dumpfile=admin12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-10T15:00:14.816Z">
+<meta property="og:updated_time" content="2018-06-10T15:05:09.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Oracle数据库备份与还原">
 <meta name="twitter:description" content="1.备份注：本次演示在C盘，首先在C盘新建backup文件夹，新建完成后，在SQl Plus下执行：create directory dump_dir as ‘C:\backup’;GRANT READ,WRITE ON DIRECTORY dump_dir to admin;命令行执行expdp SCHEMAS= admin directory=dump_dir dumpfile=admin12">
@@ -354,11 +354,9 @@
       
 
       
-        <h2 id="1-备份"><a href="#1-备份" class="headerlink" title="1.备份"></a>1.备份</h2><p>注：本次演示在C盘，首先在C盘新建backup文件夹，新建完成后，<br>在SQl Plus下执行：<br>create directory dump_dir as ‘C:\backup’;<br>GRANT READ,WRITE ON DIRECTORY dump_dir to admin;<br>命令行执行<br>expdp SCHEMAS= admin directory=dump_dir dumpfile=admin1231.dmp logfile=admin_1231.log </p>
-<p>或<br>exp Admin/Admin#@ORC file=C:/backup/admin1231.dmp log=C:/backup/admin_1231.log owner=Admin</p>
+        <h2 id="1-备份"><a href="#1-备份" class="headerlink" title="1.备份"></a>1.备份</h2><p>注：本次演示在C盘，首先在C盘新建backup文件夹，新建完成后，<br>在SQl Plus下执行：<br>create directory dump_dir as ‘C:\backup’;<br>GRANT READ,WRITE ON DIRECTORY dump_dir to admin;<br>命令行执行<br>expdp SCHEMAS= admin directory=dump_dir dumpfile=admin1231.dmp logfile=admin_1231.log<br>或<br>exp Admin/Admin#@ORC file=C:/backup/admin1231.dmp log=C:/backup/admin_1231.log owner=Admin</p>
 <p>注：Admin/Admin#@ORC  分别为用户名/密码/数据库名</p>
-<h2 id="2-还原"><a href="#2-还原" class="headerlink" title="2.还原"></a>2.还原</h2><p>select ‘drop view ‘||view_name||’;’ from user_views;<br>select ‘drop table ‘||table_name||’;’ from user_tables;</p>
-<p>注：以上每执行一条将执行后的结果复制到SQL文本中执行，删除所有的表与视图</p>
+<h2 id="2-还原"><a href="#2-还原" class="headerlink" title="2.还原"></a>2.还原</h2><p>select ‘drop view ‘||view_name||’;’ from user_views;<br>select ‘drop table ‘||table_name||’;’ from user_tables;<br>注：以上每执行一条将执行后的结果复制到SQL文本中执行，删除所有的表与视图</p>
 <p>开始还原：<br>impdp SCHEMAS= admin directory=DATA_PUMP_DIR dumpfile=admin1231.dmp table_exists_action=replace logfile=admin_1231.log </p>
 
       
@@ -390,8 +388,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/06/学习之Linux安装Oracle数据库/" rel="next" title="Linux环境安装Oracle数据库">
-                <i class="fa fa-chevron-left"></i> Linux环境安装Oracle数据库
+              <a href="/2018/06/05/学习之Linux安装JDK与Tomcat/" rel="next" title="Linux环境安装jdk与tomcat">
+                <i class="fa fa-chevron-left"></i> Linux环境安装jdk与tomcat
               </a>
             
           </div>
@@ -400,8 +398,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/07/职业素养/" rel="prev" title="职业素养">
-                职业素养 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/06/学习之Linux安装Oracle数据库/" rel="prev" title="Linux环境安装Oracle数据库">
+                Linux环境安装Oracle数据库 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
