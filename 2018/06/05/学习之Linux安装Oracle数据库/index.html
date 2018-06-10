@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="生活," />
+  <meta name="keywords" content="学习," />
 
 
 
@@ -81,18 +81,22 @@
 
 
 
-<meta name="description" content="故事是这样的……..">
-<meta name="keywords" content="生活">
+<meta name="description" content="详细步骤： 本示例以CentOS6系统安装Oracle 11g为Demo1. 下载安装介质首先在Oracle的网站上下载最新的Oracle 11.2安装包，因为CentOS6装的是x86_64的，所以，Oracle也选择Linux x86_64的安装包。下载下来是2个zip文件包 2. 安装Oracle需要的软件依赖包yum -y install binutils “compat-libstdc+">
+<meta name="keywords" content="学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="故事（2）">
-<meta property="og:url" content="www.anztan.com/2018/06/05/故事（2）/index.html">
+<meta property="og:title" content="Linux环境安装Oracle数据库">
+<meta property="og:url" content="www.anztan.com/2018/06/05/学习之Linux安装Oracle数据库/index.html">
 <meta property="og:site_name" content="谭小燎">
-<meta property="og:description" content="故事是这样的……..">
+<meta property="og:description" content="详细步骤： 本示例以CentOS6系统安装Oracle 11g为Demo1. 下载安装介质首先在Oracle的网站上下载最新的Oracle 11.2安装包，因为CentOS6装的是x86_64的，所以，Oracle也选择Linux x86_64的安装包。下载下来是2个zip文件包 2. 安装Oracle需要的软件依赖包yum -y install binutils “compat-libstdc+">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-10T02:50:05.539Z">
+<meta property="og:image" content="https://i.imgur.com/kLIlEw9.png">
+<meta property="og:image" content="https://i.imgur.com/qdmWeBK.png">
+<meta property="og:image" content="https://i.imgur.com/SzLGuYJ.png">
+<meta property="og:updated_time" content="2018-06-10T14:12:23.608Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="故事（2）">
-<meta name="twitter:description" content="故事是这样的……..">
+<meta name="twitter:title" content="Linux环境安装Oracle数据库">
+<meta name="twitter:description" content="详细步骤： 本示例以CentOS6系统安装Oracle 11g为Demo1. 下载安装介质首先在Oracle的网站上下载最新的Oracle 11.2安装包，因为CentOS6装的是x86_64的，所以，Oracle也选择Linux x86_64的安装包。下载下来是2个zip文件包 2. 安装Oracle需要的软件依赖包yum -y install binutils “compat-libstdc+">
+<meta name="twitter:image" content="https://i.imgur.com/kLIlEw9.png">
 
 
 
@@ -122,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="www.anztan.com/2018/06/05/故事（2）/"/>
+  <link rel="canonical" href="www.anztan.com/2018/06/05/学习之Linux安装Oracle数据库/"/>
 
 
 
 
 
-  <title>故事（2） | 谭小燎</title>
+  <title>Linux环境安装Oracle数据库 | 谭小燎</title>
   
 
 
@@ -265,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="www.anztan.com/2018/06/05/故事（2）/">
+    <link itemprop="mainEntityOfPage" href="www.anztan.com/2018/06/05/学习之Linux安装Oracle数据库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Eugene">
@@ -282,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">故事（2）</h1>
+          <h1 class="post-title" itemprop="name headline">Linux环境安装Oracle数据库</h1>
         
 
         <div class="post-meta">
@@ -304,6 +308,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -332,8 +358,66 @@
       
 
       
-        <p>故事是这样的……..</p>
+        <h1 id="详细步骤：-本示例以CentOS6系统安装Oracle-11g为Demo"><a href="#详细步骤：-本示例以CentOS6系统安装Oracle-11g为Demo" class="headerlink" title="详细步骤： 本示例以CentOS6系统安装Oracle 11g为Demo"></a>详细步骤： 本示例以CentOS6系统安装Oracle 11g为Demo</h1><h2 id="1-下载安装介质"><a href="#1-下载安装介质" class="headerlink" title="1. 下载安装介质"></a>1. 下载安装介质</h2><p>首先在Oracle的网站上下载最新的Oracle 11.2安装包，因为CentOS6装的是x86_64的，所以，Oracle也选择Linux x86_64的安装包。下载下来是2个zip文件包</p>
+<h2 id="2-安装Oracle需要的软件依赖包"><a href="#2-安装Oracle需要的软件依赖包" class="headerlink" title="2. 安装Oracle需要的软件依赖包"></a>2. 安装Oracle需要的软件依赖包</h2><p>yum -y install binutils “compat-libstdc++” elfutils-libelf elfutils-libelf-devel expat gcc gcc-c++ glibc glibc-common glibc-devel glibc-headers libaio libaio-devel libgcc libstdc++ libstdc++ make “pdksh” sysstat unixODBC unixODBC-devel<br>yum -y install compat-libstdc++-33.x86_64 ksh.x86_64<br>yum -y install libaio.i686 glibc.i686 compat-libstdc++-33.i686 libaio-devel.i686 libgcc.i686 libstdc++.i686 unixODBC.i686 unixODBC-devel.i686</p>
+<p>注：若不支持yum安装依赖包，则需要手动下载所有需要的依赖包手动安装，安装执行： rpm -ivh  依赖包名</p>
+<p>用下面命令，看看是否安装了所有的包，<br>rpm -q binutils compat-libstdc elfutils-libelf elfutils-libelf-devel elfutils-libelf-devel-static gcc gcc-c++ glibc glibc-common glibc-devel glibc-headers kernel-headers ksh libaio libaio-devel libgcc libgomp libstdc++ libstdc++-devel make sysstat</p>
+<h2 id="3-创建oracle用户"><a href="#3-创建oracle用户" class="headerlink" title="3.创建oracle用户"></a>3.创建oracle用户</h2><pre><code>创建相关用户和组，进入到 /usr/sbin 目录下分别执行：
+step 1： groupadd oinstall 
+step 2： groupadd dba 
+step 3： useradd -g oinstall -G dba oracle 
+step 4： passwd oracle //设置oracle账户密码
+</code></pre><h2 id="4-更改内核参数"><a href="#4-更改内核参数" class="headerlink" title="4.更改内核参数"></a>4.更改内核参数</h2><pre><code>在/etc/sysctl.conf后面增加如下参数：
 
+fs.aio-max-nr = 1048576 
+fs.file-max = 6815744 
+kernel.shmall = 2097152 
+kernel.shmmax = 2147483648 
+kernel.shmmni = 4096 
+kernel.sem = 250 32000 100 128 
+net.ipv4.ip_local_port_range = 9000 65500 
+net.core.rmem_default = 262144 
+net.core.rmem_max = 4194304 
+net.core.wmem_default = 262144 
+net.core.wmem_max = 1048586
+</code></pre><p>/sbin/sysctl -p 确认更改</p>
+<h2 id="5-更改Oracle用户的shell限制"><a href="#5-更改Oracle用户的shell限制" class="headerlink" title="5.更改Oracle用户的shell限制"></a>5.更改Oracle用户的shell限制</h2><pre><code>在/etc/security/limits.conf后面增加如下行
+oracle soft nproc 2047 
+oracle hard nproc 16384 
+oracle soft nofile 1024 
+oracle hard nofile 65536
+
+在/etc/pam.d/login 后面增加如下行
+session required pam_limits.so
+
+在 /etc/profile后面增加如下行
+if [ $USER = &quot;oracle&quot; ]; then 
+if [ $SHELL = &quot;/bin/ksh&quot; ]; then 
+ulimit -p 16384 
+ulimit -n 65536 
+else 
+ulimit -u 16384 -n 65536 
+fi 
+fi
+</code></pre><p>如果使用C-shell,则更改 /etc/csh.login<br>if ( $USER == “oracle” ) then<br>limit maxproc 16384<br>limit descriptors 65536<br>endif</p>
+<h2 id="6-创建Oracle安装目录"><a href="#6-创建Oracle安装目录" class="headerlink" title="6.创建Oracle安装目录"></a>6.创建Oracle安装目录</h2><p>我的oracle安装在了/opt/oracle/<br>Inventory目录在 /opt/oraInventory/</p>
+<p>执行以下语句：<br>mkdir -p /opt/oracle/<br>chown -R oracle:oinstall /opt/oracle/<br>chmod -R 775 /opt/oracle/</p>
+<p>mkdir -p /opt/oraInventory/<br>chown -R oracle:oinstall /opt/oraInventory/<br>chmod -R 775 /opt/oraInventory/</p>
+<h2 id="7-更改Oracle用户的profil"><a href="#7-更改Oracle用户的profil" class="headerlink" title="7.更改Oracle用户的profil"></a>7.更改Oracle用户的profil</h2><p>以Oracle用户登录，su oracle<br>运行<br>vi .bash_profile<br>增加下列行<br>umask 022<br>ORACLE_BASE=/opt/oracle<br>ORACLE_SID=orcl<br>export ORACLE_BASE ORACLE_SID </p>
+<p>unset ORACLE_HOME<br>unset TNS_ADMIN<br>更改完成后，退出oracle用户，重新登录，用以下命令检查是否更改成功<br>umask<br>env | more</p>
+<p><img src="https://i.imgur.com/kLIlEw9.png" alt=""></p>
+<p>至此，环境配置完毕，可以开始安装Oracle了，选择先安装软件，再安装数据库</p>
+<h2 id="8-开始安装Oracle软件"><a href="#8-开始安装Oracle软件" class="headerlink" title="8.开始安装Oracle软件"></a>8.开始安装Oracle软件</h2><pre><code>step 1 :用新建的oracle用户登录
+Step 2 :确保oracle用户对安装的软件包有足够权限
+step 3：解压上传的安装包
+Step 4：解压后，会生成一个database文件夹，进入解压后的database目录下查看安装介质
+</code></pre><p>注：oracle安装需要图像化界面操作，前提需安装好Xmanager工具，以供图形化界面展示操作<br>在安装好Xmanager工具后，linux环境需配置好<br>进入到 /home/oracle 目录，执行：vi .bash_profile 编辑配置文件<br>增加：export DISPLAY=192.168.16.124:0.0<br>注：192.168.16.124是安装Xmanager工具的物理主机IP地址，后面的0.0是Xmanager工具图形界面认证的标识</p>
+<h2 id="开始安装："><a href="#开始安装：" class="headerlink" title="开始安装："></a>开始安装：</h2><pre><code>step 1:先打开安装的Xmanager ：双击执行Xmanager下的Xmanager -Passive 如图：
+</code></pre><p><img src="https://i.imgur.com/qdmWeBK.png" alt=""></p>
+<pre><code>step 2:进入到刚解压的database目录下，执行：./runInstaller 开始安装，Xmanager会展示出图形界面
+</code></pre><p><img src="https://i.imgur.com/SzLGuYJ.png" alt=""></p>
+<pre><code>Step 3 ：跟着界面展示，安装自己的Oracle数据库
+</code></pre>
       
     </div>
     
@@ -350,7 +434,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/生活/" rel="tag"> <i class="fa fa-tag"></i> 生活</a>
+            <a href="/tags/学习/" rel="tag"> <i class="fa fa-tag"></i> 学习</a>
           
         </div>
       
@@ -363,8 +447,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/05/职业素养/" rel="next" title="职业素养">
-                <i class="fa fa-chevron-left"></i> 职业素养
+              <a href="/2018/06/05/故事（1）/" rel="next" title="故事（1）">
+                <i class="fa fa-chevron-left"></i> 故事（1）
               </a>
             
           </div>
@@ -373,8 +457,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/05/故事（1）/" rel="prev" title="故事（1）">
-                故事（1） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/05/学习之Linux安装JDK与Tomcat/" rel="prev" title="Linux环境安装JDK与tomcat">
+                Linux环境安装JDK与tomcat <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -427,8 +511,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -515,6 +608,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#详细步骤：-本示例以CentOS6系统安装Oracle-11g为Demo"><span class="nav-number">1.</span> <span class="nav-text">详细步骤： 本示例以CentOS6系统安装Oracle 11g为Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-下载安装介质"><span class="nav-number">1.1.</span> <span class="nav-text">1. 下载安装介质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装Oracle需要的软件依赖包"><span class="nav-number">1.2.</span> <span class="nav-text">2. 安装Oracle需要的软件依赖包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-创建oracle用户"><span class="nav-number">1.3.</span> <span class="nav-text">3.创建oracle用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-更改内核参数"><span class="nav-number">1.4.</span> <span class="nav-text">4.更改内核参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-更改Oracle用户的shell限制"><span class="nav-number">1.5.</span> <span class="nav-text">5.更改Oracle用户的shell限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-创建Oracle安装目录"><span class="nav-number">1.6.</span> <span class="nav-text">6.创建Oracle安装目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-更改Oracle用户的profil"><span class="nav-number">1.7.</span> <span class="nav-text">7.更改Oracle用户的profil</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-开始安装Oracle软件"><span class="nav-number">1.8.</span> <span class="nav-text">8.开始安装Oracle软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始安装："><span class="nav-number">1.9.</span> <span class="nav-text">开始安装：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
