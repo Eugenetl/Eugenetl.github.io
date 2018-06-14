@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学习," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="谭小燎" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="详细步骤： 本示例以CentOS6系统安装Mysql 5.6版本为Demo1. 下载安装介质首先Mysql 5.6安装包。 2.检查库文件是否存在，如果有则删除1）执行：[root@localhost Desktop]$ rpm -qa | grep mysqlmysql-libs-5.1.52-1.el6_0.1.x86_64 删除：[root@localhost ~]# rpm -e mysq">
+<meta name="keywords" content="学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux环境安装Mysql数据库">
+<meta property="og:url" content="www.anztan.com/2018/06/06/学习之Linux环境安装Mysql数据库/index.html">
+<meta property="og:site_name" content="谭小燎">
+<meta property="og:description" content="详细步骤： 本示例以CentOS6系统安装Mysql 5.6版本为Demo1. 下载安装介质首先Mysql 5.6安装包。 2.检查库文件是否存在，如果有则删除1）执行：[root@localhost Desktop]$ rpm -qa | grep mysqlmysql-libs-5.1.52-1.el6_0.1.x86_64 删除：[root@localhost ~]# rpm -e mysq">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-14T15:21:46.049Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux环境安装Mysql数据库">
+<meta name="twitter:description" content="详细步骤： 本示例以CentOS6系统安装Mysql 5.6版本为Demo1. 下载安装介质首先Mysql 5.6安装包。 2.检查库文件是否存在，如果有则删除1）执行：[root@localhost Desktop]$ rpm -qa | grep mysqlmysql-libs-5.1.52-1.el6_0.1.x86_64 删除：[root@localhost ~]# rpm -e mysq">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="www.anztan.com/2018/06/06/学习之Linux环境安装Mysql数据库/"/>
+
+
+
+
+
+  <title>Linux环境安装Mysql数据库 | 谭小燎</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">谭小燎</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">闻道有先后,术业有专攻</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.anztan.com/2018/06/06/学习之Linux环境安装Mysql数据库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Eugene">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谭小燎">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux环境安装Mysql数据库</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T10:33:04+08:00">
+                2018-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="详细步骤：-本示例以CentOS6系统安装Mysql-5-6版本为Demo"><a href="#详细步骤：-本示例以CentOS6系统安装Mysql-5-6版本为Demo" class="headerlink" title="详细步骤： 本示例以CentOS6系统安装Mysql 5.6版本为Demo"></a>详细步骤： 本示例以CentOS6系统安装Mysql 5.6版本为Demo</h1><h2 id="1-下载安装介质"><a href="#1-下载安装介质" class="headerlink" title="1. 下载安装介质"></a>1. 下载安装介质</h2><p>首先Mysql 5.6安装包。</p>
+<h2 id="2-检查库文件是否存在，如果有则删除"><a href="#2-检查库文件是否存在，如果有则删除" class="headerlink" title="2.检查库文件是否存在，如果有则删除"></a>2.检查库文件是否存在，如果有则删除</h2><p>1）执行：<br>[root@localhost Desktop]$ rpm -qa | grep mysql<br>mysql-libs-5.1.52-1.el6_0.1.x86_64</p>
+<p>删除：<br>[root@localhost ~]# rpm -e mysql-libs-5.1.52.x86_64 –nodeps<br>[root@localhost ~]# </p>
+<p>2）安装MySql 服务端<br>rpm -ivh MySQL-server-5.6.22-1.linux_glibc2.5.x86_64.rpm<br>Preparing… ########################################### [100%]<br>1:MySQL-server ########################################### [100%]<br>。<br>。<br>。<br>。<br>。<br>开始安装。。。。</p>
+<h2 id="3）检测-MySQL-3306-端口是否安打开。测试是否成功可运行-netstat-看-MySQL-端口是否打开，如打开表示服务已经启动，安装成功。MySQL-默认的端口是3306。"><a href="#3）检测-MySQL-3306-端口是否安打开。测试是否成功可运行-netstat-看-MySQL-端口是否打开，如打开表示服务已经启动，安装成功。MySQL-默认的端口是3306。" class="headerlink" title="3）检测 MySQL 3306 端口是否安打开。测试是否成功可运行 netstat 看 MySQL 端口是否打开，如打开表示服务已经启动，安装成功。MySQL 默认的端口是3306。"></a>3）检测 MySQL 3306 端口是否安打开。测试是否成功可运行 netstat 看 MySQL 端口是否打开，如打开表示服务已经启动，安装成功。MySQL 默认的端口是3306。</h2><p>执行：<br>[root@hadoop Mysql]# netstat -nat</p>
+<h2 id="4）启动MySql-服务"><a href="#4）启动MySql-服务" class="headerlink" title="4）启动MySql 服务"></a>4）启动MySql 服务</h2><p>[root@hadoop Mysql]# service mysql start<br>Starting MySQL………. SUCCESS! </p>
+<h2 id="5）-安装客户端"><a href="#5）-安装客户端" class="headerlink" title="5） 安装客户端"></a>5） 安装客户端</h2><p>[root@hadoop Mysql]# rpm -ivh MySQL-client-5.6.22-1.linux_glibc2.5.x86_64.rpm<br>Preparing…                ########################################### [100%]<br>1:MySQL-client           ^C########################################### [100%]   安装完成</p>
+<h2 id="6）MySQL的几个重要目录。"><a href="#6）MySQL的几个重要目录。" class="headerlink" title="6）MySQL的几个重要目录。"></a>6）MySQL的几个重要目录。</h2><p>MySQL安装完成后不像 SQL Server 默认安装在一个目录，它的数据库文件、配置文件和命令文件分别在不同的目录，了解这些目录非常重要，尤其对于Linux的初学者，因为 Linux本身的目录结构就比较复杂，如果搞不清楚MySQL的安装目录那就无从谈起深入学习。<br>a、数据库目录     /var/lib/mysql/<br>b、配置文件     /usr/share/mysql（mysql.server命令及配置文件）<br>c、相关命令    /usr/bin(mysqladmin mysqldump等命令)<br>d、启动脚本   /etc/rc.d/init.d/（启动脚本文件mysql的目录）<br>如：/etc/rc.d/init.d/mysql start/restart/stop/status</p>
+<h2 id="7）更改-MySQL-目录"><a href="#7）更改-MySQL-目录" class="headerlink" title="7）更改 MySQL 目录"></a>7）更改 MySQL 目录</h2><p>由于MySQL数据库目录占用磁盘比较大，而MySQL默认的数据文件存储目录为 /“var/lib/mysql”，也可以把要把数据目录移到 “/“ 根目录下的 “mysql_data” 目录中（如果做测试用就不用移动了）。</p>
+<h2 id="停止-MySql-服务进程"><a href="#停止-MySql-服务进程" class="headerlink" title="停止 MySql 服务进程"></a>停止 MySql 服务进程</h2><p>service mysql stop  或者  mysqladmin -u root -p shutdown</p>
+<p>MySQL默认用户名为”root”，此处的”root”与Linux的最高权限用户”root”不是一同一个，而且默认的用户”root”的密码为空，所以上图中让输入密码，直接点击回车即可。</p>
+<p>把 “/var/lib/mysql” 整个目录移到 “/mysql_data”<br>mv /var/lib/mysql /mysql_data</p>
+<h2 id="找到my-cnf配置文件"><a href="#找到my-cnf配置文件" class="headerlink" title="找到my.cnf配置文件"></a>找到my.cnf配置文件</h2><p>如果”/etc/“目录下没有my.cnf配置文件，请到 “/usr/share/mysql/“ 下找到 my-default.cnf  文件，拷贝其中一个合适的配置文件到 “/etc/“ 并改名为 “my.cnf” 中。命令如下：<br>cp /usr/share/mysql/my-medium.cnf　 /etc/my.cnf</p>
+<h2 id="编辑MySQL的配置文件"><a href="#编辑MySQL的配置文件" class="headerlink" title="编辑MySQL的配置文件"></a>编辑MySQL的配置文件</h2><p> “/etc/my.cnf” 为保证MySQL能够正常工作，需要指明”mysql.sock”文件的产生位置，以及默认编码修改为UTF-8。用下面命令：<br>vim /etc /my.cnf<br>[mysqld] #下添加以下命令<br>socket = /var/lib/mysql/mysql/mysql.sock<br>datadir=/mysql_data/mysql   #如果你的数据存储位置要改变的话需要在这里指定存储目录<br>character-set-server=utf8<br>lower_case_table_names=1</p>
+<p>（注意linux下mysql安装完后是默认：区分表名的大小写，不区分列名的大小写；#  lower_case_table_names = 0    0：区分大小写，1：不区分大小写）<br>注意：<br>1）最后一行，我在本地安装的时候没有添加此设置也可以照样运行起来，加不加还要看你们自己了。</p>
+<p>2）还有在此配置文件还有 [client] 的一下配置 其中也可以设置 socket ，datadir 两个选项，我这里也没有（此处不做配置，因为只是安装 MySql 测试）</p>
+<p>3）如果你修改了数据的存储位置目录 ，则可以执行以下命令来修改MySQL启动脚本 “/etc/rc.d/init.d/mysql”<br>最后，需要修改MySQL启动脚本 /etc/rc.d/init.d/mysql，修改 datadir=/mysql_data/mysql。<br>vim /etc/rc.d/init.d/mysql</p>
+<h2 id="8）重新启动MySQL服务"><a href="#8）重新启动MySQL服务" class="headerlink" title="8）重新启动MySQL服务"></a>8）重新启动MySQL服务</h2><p>service mysql start<br>发生错误：Starting MySQL ERROR! The server quit without updataing PID file….<br>解决方法是：<br>vi  /etc/selinux/config<br>把 SELINUX=enforcing 改为 SELINUX=disabled 后存盘退出重启机器试试，必须要重启，很关键。</p>
+<h2 id="MySQL-没有初始化表"><a href="#MySQL-没有初始化表" class="headerlink" title="MySQL 没有初始化表"></a>MySQL 没有初始化表</h2><p>/usr/bin/mysql_install_db –user=mysql</p>
+<h2 id="启动MySQL-服务："><a href="#启动MySQL-服务：" class="headerlink" title="启动MySQL 服务："></a>启动MySQL 服务：</h2><p>service mysql start<br>service mysql start 就可以重启MySQL 服务了。</p>
+<h2 id="9）修改登录密码"><a href="#9）修改登录密码" class="headerlink" title="9）修改登录密码"></a>9）修改登录密码</h2><p>MySQL默认没有密码，安装完修密码，直接登录<br>检查 MySql 端口是否开启：<br>[root@Hadoop ~]#netstat -ntlp  | grep 3306<br>tcp        0      0 :::3306                     :::*                        LISTEN      5052/mysqld  </p>
+<p>$：mysql<br>报错：ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock’ (2)<br>发现 与设置 MySql 服务器的 socket 位置不一样。改一下 /etc/my.cn<br>修改<br>socket = /var/lib/mysql/mysql.sock   –保存；</p>
+<p>再次进入：<br>[root@hadoop init.d]# mysql<br>又报错。。。<br>ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: NO)</p>
+<p>解决方法：<br>[root@hadoop ~]#mysqld_safe –user=mysql –skip-grant-tables –skip-networking &amp;  mysql -u root mysql</p>
+<p>再次进入，执行：<br>[root@hadoop ~]# mysql<br>Welcome to the MySQL monitor.  Commands end with ; or \g.<br>Your MySQL connection id is 2<br>Server version: 5.6.22 MySQL Community Server (GPL)</p>
+<p>Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.</p>
+<p>Oracle is a registered trademark of Oracle Corporation and/or its<br>affiliates. Other names may be trademarks of their respective<br>owners.</p>
+<p>Type ‘help;’ or ‘\h’ for help. Type ‘\c’ to clear the current input statement.<br>mysql&gt;<br>OK 安装成功了。。。</p>
+<p>在没有添加密码前，直接输入”mysql”就能登录到MySQL数据库里。 修改登录密码：<br>[root@hadoop ~]mysqladmin -u root password ‘root’<br>格式：mysqladmin -u用户名 -p旧密码 password 新密码 </p>
+<p>如果已经连接上了 MySql 可以使用下面语句 ：<br>mysql&gt; use mysql;<br>mysql&gt; UPDATE user SET Password=PASSWORD(‘root’) where USER=’root’;<br>Query OK, 4 rows affected (0.04 sec)<br>Rows matched: 4  Changed: 4  Warnings: 0<br>修改成功；</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习/" rel="tag"> <i class="fa fa-tag"></i> 学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/06/学习之Linux安装Oracle数据库/" rel="next" title="Linux环境安装Oracle数据库">
+                <i class="fa fa-chevron-left"></i> Linux环境安装Oracle数据库
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/07/职业素养/" rel="prev" title="职业素养">
+                职业素养 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Eugene" />
+            
+              <p class="site-author-name" itemprop="name">Eugene</p>
+              <p class="site-description motion-element" itemprop="description">闻道有先后,术业有专攻</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/yourname" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#详细步骤：-本示例以CentOS6系统安装Mysql-5-6版本为Demo"><span class="nav-number">1.</span> <span class="nav-text">详细步骤： 本示例以CentOS6系统安装Mysql 5.6版本为Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-下载安装介质"><span class="nav-number">1.1.</span> <span class="nav-text">1. 下载安装介质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-检查库文件是否存在，如果有则删除"><span class="nav-number">1.2.</span> <span class="nav-text">2.检查库文件是否存在，如果有则删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3）检测-MySQL-3306-端口是否安打开。测试是否成功可运行-netstat-看-MySQL-端口是否打开，如打开表示服务已经启动，安装成功。MySQL-默认的端口是3306。"><span class="nav-number">1.3.</span> <span class="nav-text">3）检测 MySQL 3306 端口是否安打开。测试是否成功可运行 netstat 看 MySQL 端口是否打开，如打开表示服务已经启动，安装成功。MySQL 默认的端口是3306。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4）启动MySql-服务"><span class="nav-number">1.4.</span> <span class="nav-text">4）启动MySql 服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5）-安装客户端"><span class="nav-number">1.5.</span> <span class="nav-text">5） 安装客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6）MySQL的几个重要目录。"><span class="nav-number">1.6.</span> <span class="nav-text">6）MySQL的几个重要目录。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7）更改-MySQL-目录"><span class="nav-number">1.7.</span> <span class="nav-text">7）更改 MySQL 目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#停止-MySql-服务进程"><span class="nav-number">1.8.</span> <span class="nav-text">停止 MySql 服务进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#找到my-cnf配置文件"><span class="nav-number">1.9.</span> <span class="nav-text">找到my.cnf配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑MySQL的配置文件"><span class="nav-number">1.10.</span> <span class="nav-text">编辑MySQL的配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8）重新启动MySQL服务"><span class="nav-number">1.11.</span> <span class="nav-text">8）重新启动MySQL服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-没有初始化表"><span class="nav-number">1.12.</span> <span class="nav-text">MySQL 没有初始化表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动MySQL-服务："><span class="nav-number">1.13.</span> <span class="nav-text">启动MySQL 服务：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9）修改登录密码"><span class="nav-number">1.14.</span> <span class="nav-text">9）修改登录密码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eugene</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+-->
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
